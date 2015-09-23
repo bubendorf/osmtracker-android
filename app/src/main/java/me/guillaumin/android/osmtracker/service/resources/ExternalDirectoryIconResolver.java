@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.content.res.Resources;
 
 /**
  * Implementation of {@link IconResolver} which reads icon
@@ -15,17 +16,21 @@ import android.graphics.drawable.Drawable;
  *
  */
 public class ExternalDirectoryIconResolver implements IconResolver {
-	
+
+	private Resources resources;
+
 	/**
 	 * Base directory to read icon files.
 	 */
 	private File directory;
-		
-	public ExternalDirectoryIconResolver(File baseDir) {
+
+
+	public ExternalDirectoryIconResolver(Resources resources, File baseDir) {
 		if (!baseDir.isDirectory()) {
 			throw new IllegalArgumentException("baseDir must be a directory. " + baseDir + " is not.");
 		}
-		
+
+		this.resources = resources;
 		directory = baseDir;
 	}
 	
@@ -37,7 +42,7 @@ public class ExternalDirectoryIconResolver implements IconResolver {
 			File iconFile = new File(directory, key);
 			if (iconFile.exists() && iconFile.canRead()) {
 				Bitmap iconBitmap = BitmapFactory.decodeFile(iconFile.getAbsolutePath());
-				BitmapDrawable iconDrawable = new BitmapDrawable(iconBitmap);
+				BitmapDrawable iconDrawable = new BitmapDrawable(resources, iconBitmap);
 				return iconDrawable;
 			} else {
 				return null;
