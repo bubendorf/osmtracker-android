@@ -49,7 +49,14 @@ public class ExternalDirectoryIconResolver implements IconResolver {
 			File iconFile = new File(directory, key);
 			if (iconFile.exists() && iconFile.canRead()) {
 				Bitmap iconBitmap = BitmapFactory.decodeFile(iconFile.getAbsolutePath());
-				iconDrawable = new BitmapDrawable(resources, iconBitmap);
+				BitmapDrawable iconDrawable = new BitmapDrawable(resources, iconBitmap);
+				int xDpi = (int)resources.getDisplayMetrics().xdpi;
+				if (iconBitmap.getWidth() <= 32) {
+					// Make such small icons larger!
+					iconDrawable.setTargetDensity(4 * xDpi);
+				} else if (iconBitmap.getWidth() <= 64) {
+					iconDrawable.setTargetDensity(2 * xDpi);
+				}
 				return iconDrawable;
 			} else {
 				return null;

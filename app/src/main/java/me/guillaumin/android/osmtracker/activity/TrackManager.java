@@ -34,6 +34,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.acra.ACRA;
+
 /**
  * Lists existing tracks.
  * Each track is displayed using {@link TracklistAdapter}.
@@ -61,7 +63,7 @@ public class TrackManager extends ListActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.trackmanager);	
+		setContentView(R.layout.trackmanager);
 		getListView().setEmptyView(findViewById(R.id.trackmgr_empty));
 		registerForContextMenu(getListView());
 		if (savedInstanceState != null) {

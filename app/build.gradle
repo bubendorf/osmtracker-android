@@ -56,6 +56,7 @@ dependencies {
     compile 'oauth.signpost:signpost-commonshttp4:1.2.1.2'
     compile 'oauth.signpost:signpost-core:1.2.1.2'
     compile 'org.slf4j:slf4j-android:1.6.1-RC1'
+    compile 'ch.acra:acra:4.6.2'
 }
 
 task copyNorwegianValues(type: Copy) {
