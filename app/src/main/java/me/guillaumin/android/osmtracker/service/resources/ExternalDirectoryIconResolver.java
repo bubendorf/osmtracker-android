@@ -23,15 +23,16 @@ public class ExternalDirectoryIconResolver implements IconResolver {
 	 * Base directory to read icon files.
 	 */
 	private File directory;
+	private IconResolver otherIconResolver;
 
-
-	public ExternalDirectoryIconResolver(Resources resources, File baseDir) {
+	public ExternalDirectoryIconResolver(Resources resources, File baseDir, IconResolver otherIconResolver) {
 		if (!baseDir.isDirectory()) {
 			throw new IllegalArgumentException("baseDir must be a directory. " + baseDir + " is not.");
 		}
 
 		this.resources = resources;
 		directory = baseDir;
+		this.otherIconResolver = otherIconResolver;
 	}
 	
 	@Override
@@ -39,10 +40,16 @@ public class ExternalDirectoryIconResolver implements IconResolver {
 		if (key == null) {
 			return null;
 		} else {
+			// First try to get the Icon from the otherIconResolver
+			BitmapDrawable iconDrawable = otherIconResolver.getIcon(key);
+			if (iconDrawable != null) {
+				return iconDrawable;
+			}
+
 			File iconFile = new File(directory, key);
 			if (iconFile.exists() && iconFile.canRead()) {
 				Bitmap iconBitmap = BitmapFactory.decodeFile(iconFile.getAbsolutePath());
-				BitmapDrawable iconDrawable = new BitmapDrawable(resources, iconBitmap);
+				iconDrawable = new BitmapDrawable(resources, iconBitmap);
 				return iconDrawable;
 			} else {
 				return null;
