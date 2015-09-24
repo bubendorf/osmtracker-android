@@ -271,7 +271,7 @@ public class UserDefinedLayoutReader {
 		Button button = new Button(row.getContext());
 		button.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT,
 				TableRow.LayoutParams.FILL_PARENT, 1));
-
+		button.setSingleLine(false);
 		// TODO Use kind of ButtonFactory here
 
 		String buttonType = parser.getAttributeValue(null, XmlSchema.ATTR_TYPE);
@@ -361,7 +361,7 @@ public class UserDefinedLayoutReader {
 
 	private String findLabel(String text, Resources r, String defaultLabel) {
 		String label = findLabel(text, r);
-		if (label == null || label.equals(text)) {
+		if (label == null) {
 			label = defaultLabel;
 		}
 		return label;

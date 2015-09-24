@@ -76,7 +76,7 @@ public class SensorListener implements SensorEventListener {
 	private float[] orientVals = new float[3];
 	
 	private Activity activity = null;
-	private Context context = null;
+//	private Context context = null;
 	
 
 	/**
@@ -130,7 +130,7 @@ public class SensorListener implements SensorEventListener {
 		} else {
 			// case for orientation event: already done
 		}
-		Log.v(TAG,"new azimuth:  "+azimuth+", pitch: "+pitch+", roll: "+roll+", accuracy: "+accuracy+", valid: "+valid);			
+//		Log.v(TAG,"new azimuth:  "+azimuth+", pitch: "+pitch+", roll: "+roll+", accuracy: "+accuracy+", valid: "+valid);
 		
 		if (activity!=null) {
 			TextView tvHeading = (TextView) activity.findViewById(R.id.gpsstatus_record_tvHeading);
@@ -219,7 +219,7 @@ public class SensorListener implements SensorEventListener {
 	 */
 	public boolean register(Context context, boolean use_orientation) {
 		//register for Orientation updates
-		this.context = context;
+//		this.context = context;
 		boolean result;
 	    sensorService = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
 	    

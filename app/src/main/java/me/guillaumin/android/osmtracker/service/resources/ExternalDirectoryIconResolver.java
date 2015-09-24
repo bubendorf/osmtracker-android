@@ -41,9 +41,9 @@ public class ExternalDirectoryIconResolver implements IconResolver {
 			return null;
 		} else {
 			// First try to get the Icon from the otherIconResolver
-			BitmapDrawable iconDrawable = otherIconResolver.getIcon(key);
-			if (iconDrawable != null) {
-				return iconDrawable;
+			Drawable drawable = otherIconResolver.getIcon(key);
+			if (drawable != null) {
+				return drawable;
 			}
 
 			File iconFile = new File(directory, key);
@@ -53,9 +53,9 @@ public class ExternalDirectoryIconResolver implements IconResolver {
 				int xDpi = (int)resources.getDisplayMetrics().xdpi;
 				if (iconBitmap.getWidth() <= 32) {
 					// Make such small icons larger!
-					iconDrawable.setTargetDensity(4 * xDpi);
+					iconDrawable.setTargetDensity(3 * xDpi);
 				} else if (iconBitmap.getWidth() <= 64) {
-					iconDrawable.setTargetDensity(2 * xDpi);
+					iconDrawable.setTargetDensity((int)(1.5 * xDpi));
 				}
 				return iconDrawable;
 			} else {

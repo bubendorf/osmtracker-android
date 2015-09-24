@@ -11,6 +11,7 @@ import me.guillaumin.android.osmtracker.R;
 import me.guillaumin.android.osmtracker.activity.TrackLogger;
 import me.guillaumin.android.osmtracker.service.resources.AppResourceIconResolver;
 import me.guillaumin.android.osmtracker.service.resources.ExternalDirectoryIconResolver;
+import me.guillaumin.android.osmtracker.service.resources.IconResolver;
 import me.guillaumin.android.osmtracker.util.UserDefinedLayoutReader;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -70,7 +71,7 @@ public class UserDefinedLayout extends LinearLayout {
 			XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
 			parser = factory.newPullParser();
 			parser.setInput(new FileReader(xmlLayout));
-			udlr = new UserDefinedLayoutReader(this, getContext(), activity, trackId, parser, new ExternalDirectoryIconResolver(getResources(), xmlLayout.getParentFile()), appResourceIconResolver);
+			udlr = new UserDefinedLayoutReader(this, getContext(), activity, trackId, parser, new ExternalDirectoryIconResolver(getResources(), xmlLayout.getParentFile(), appResourceIconResolver));
 		}
 		
 		layouts = udlr.parseLayout();
