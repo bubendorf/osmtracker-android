@@ -218,6 +218,9 @@ public class UserDefinedLayoutReader {
 			}
 		}
 
+		tblLayout.setShrinkAllColumns(true);
+		tblLayout.setStretchAllColumns (true);
+
 		// Add the new inflated layout to the list
 		layouts.put(layoutName, tblLayout);
 	}
