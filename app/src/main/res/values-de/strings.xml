@@ -3,11 +3,11 @@
   <!--Generic strings-->
   <string name="app_name">OSMTracker für Android™</string>
   <string name="app_short_name">OSMTracker</string>
-  <string name="app_description">Inspiriert durch OSMTracker auf Windows Mobile. OSMTracker erlaubt die Aufzeichnung von Routen, das Markieren signifikanter Wegepunkte (Sprachaufnahme, Foto) und dessen Export in eine GPX-Datei zur weiteren Bearbeitung mit OpenStreetMap-Tools, wie z.B. JOSM.</string>
+  <string name="app_description">Inspiriert durch OSMTracker auf Windows Mobile. OSMTracker erlaubt die Aufzeichnung von Routen, das Markieren signifikanter Wegepunkte (Aufnahme, Foto) und dessen Export in eine GPX-Datei zur weiteren Bearbeitung mit OpenStreetMap-Tools, wie z.B. JOSM.</string>
   <!--TrackLogger-->
   <string name="tracklogger">Track Logger</string>
   <string name="tracklogger_waiting_gps">Warte auf GPS-Standortbestimmung bevor Tasten verfügbar sind…</string>
-  <string name="tracklogger_voicerec_title">Sprachaufnahme</string>
+  <string name="tracklogger_voicerec_title">Aufnahme</string>
   <string name="tracklogger_voicerec_text">Aufnahme eines {0}s Audio-Clips.</string>
   <string name="tracklogger_voicerec_stop">Stop</string>
   <string name="tracklogger_btnBack">Zurück</string>
@@ -76,7 +76,7 @@
   <string name="osm_upload_unauthorized">Autorisierungsfehler. Möchtest Du die gespeicherten OpenStreetMap-Anmeldedaten zurücksetzen?</string>
   <string name="osm_upload_sucess">Hochladen erfolgreich</string>
   <!--GPS Status & record bar-->
-  <string name="gpsstatus_record_voicerec">Sprachaufnahme</string>
+  <string name="gpsstatus_record_voicerec">Aufnahme</string>
   <string name="gpsstatus_record_stillimage">Foto aufnehmen</string>
   <string name="gpsstatus_record_textnote">Textnotiz</string>
   <!--Menu-->
@@ -99,7 +99,7 @@
   <string name="error_externalstorage_not_writable">Schreiben auf externen Speicher nicht möglich.</string>
   <string name="error_create_track_dir">Der Ordner %s kann nicht erstellt werden.</string>
   <string name="error_externalstorage_not_writable_hint">Bitte überprüfen Sie, ob der externe Speicher korrekt eingesetzt und eingebunden ist.</string>
-  <string name="error_voicerec_failed">Sprachaufnahme fehlgeschlagen</string>
+  <string name="error_voicerec_failed">Aufnahme fehlgeschlagen</string>
   <string name="error_userlayout_parsing">Fehler während Parsen der XML-Datei. Bitte auf Standardlayout wechseln.</string>
   <!--GPX-->
   <string name="gpx_track_name">Aufgezeichnet mit OSMTracker für Android™</string>
