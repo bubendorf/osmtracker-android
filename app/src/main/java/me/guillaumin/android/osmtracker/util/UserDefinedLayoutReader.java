@@ -1,6 +1,7 @@
 package me.guillaumin.android.osmtracker.util;
 
 import java.io.IOException;
+import java.lang.String;
 import java.util.HashMap;
 
 import me.guillaumin.android.osmtracker.OSMTracker;
@@ -285,18 +286,18 @@ public class UserDefinedLayoutReader {
 			button.setOnClickListener(new TagButtonOnClickListener(currentTrackId));
 		} else if (XmlSchema.ATTR_VAL_VOICEREC.equals(buttonType)) {
 			// Voice record button
-			button.setText(resources.getString(R.string.gpsstatus_record_voicerec));
-			buttonIcon = resources.getDrawable(R.drawable.voice_32x32);
+			button.setText(findLabel(parser.getAttributeValue(null, XmlSchema.ATTR_LABEL), resources, resources.getString(R.string.gpsstatus_record_voicerec)));
+			buttonIcon = findDrawable(iconResolver.getIcon(parser.getAttributeValue(null, XmlSchema.ATTR_ICON)), resources.getDrawable(R.drawable.voice_32x32));
 			button.setOnClickListener(voiceRecordOnClickListener);
 		} else if (XmlSchema.ATTR_VAL_TEXTNOTE.equals(buttonType)) {
 			// Text note button
-			button.setText(resources.getString(R.string.gpsstatus_record_textnote));
-			buttonIcon = resources.getDrawable(R.drawable.text_32x32);
+			button.setText(findLabel(parser.getAttributeValue(null, XmlSchema.ATTR_LABEL), resources, resources.getString(R.string.gpsstatus_record_textnote)));
+			buttonIcon = findDrawable(iconResolver.getIcon(parser.getAttributeValue(null, XmlSchema.ATTR_ICON)), resources.getDrawable(R.drawable.text_32x32));
 			button.setOnClickListener(textNoteOnClickListener);
 		} else if (XmlSchema.ATTR_VAL_PICTURE.equals(buttonType)) {
 			// Picture button
-			button.setText(resources.getString(R.string.gpsstatus_record_stillimage));
-			buttonIcon = resources.getDrawable(R.drawable.camera_32x32);
+			button.setText(findLabel(parser.getAttributeValue(null, XmlSchema.ATTR_LABEL), resources, resources.getString(R.string.gpsstatus_record_stillimage)));
+			buttonIcon = findDrawable(iconResolver.getIcon(parser.getAttributeValue(null, XmlSchema.ATTR_ICON)), resources.getDrawable(R.drawable.camera_32x32));
 			button.setOnClickListener(stillImageOnClickListener);
 		}
 		
@@ -353,6 +354,21 @@ public class UserDefinedLayoutReader {
 			}
 		}
 		return text;
+	}
+
+	private String findLabel(String text, Resources r, String defaultLabel) {
+		String label = findLabel(text, r);
+		if (label == null || label.equals(text)) {
+			label = defaultLabel;
+		}
+		return label;
+	}
+
+	private Drawable findDrawable(Drawable first, Drawable second) {
+		if (first != null) {
+			return first;
+		}
+		return second;
 	}
 
 	/**
