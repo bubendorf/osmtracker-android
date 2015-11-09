@@ -413,7 +413,7 @@ public abstract class ExportTrackTask  extends AsyncTask<Void, Long, Boolean> {
 					out.append("\t\t" + "<name>"
 							+ CDATA_START 
 							+ name
-							+ " (" + c.getDouble(c.getColumnIndex(Schema.COL_ACCURACY)) + meterUnit + ")"
+//							+ " (" + c.getDouble(c.getColumnIndex(Schema.COL_ACCURACY)) + meterUnit + ")"
 							+ CDATA_END
 							+ "</name>" + "\n");
 					if (OSMTracker.Preferences.VAL_OUTPUT_COMPASS_COMMENT.equals(compass) &&
