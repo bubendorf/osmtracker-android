@@ -69,7 +69,7 @@
   <string name="osm_upload_ok">Speichern und hochladen</string>
   <string name="osm_upload_tmpfile_failed">Konnte den Track nicht in eine temporäre Datei exportieren</string>
   <string name="osm_upload_oauth_failed">Konnte keine Anmeldung bei OSM durchführen</string>
-  <string name="osm_upload_sending">Übertrage Track #{0}...</string>
+  <string name="osm_upload_sending">Übertrage Track #{0}…</string>
   <string name="osm_upload_waiting_response">Warte auf die Antwort des OpenStreetMap Servers</string>
   <string name="osm_upload_error">Fehler beim Hochladen des Tracks</string>
   <string name="osm_upload_bad_response">Der OSM Server meldet einen Fehler: ({0})message{1}</string>
@@ -128,7 +128,7 @@
   <!--parameters: (used sats, visible sats)-->
   <string name="various_heading_display">{0}°</string>
   <!--parameters: (heading in degrees)-->
-  <string name="various_heading">Warte auf Richtung...</string>
+  <string name="various_heading">Warte auf Richtung…</string>
   <string name="various_heading_unknown">Richtung kann nicht bestimmt werden</string>
   <!--OSM map view-->
   <string name="displaytrackmap">OpenStreetMap Track Anzeige</string>

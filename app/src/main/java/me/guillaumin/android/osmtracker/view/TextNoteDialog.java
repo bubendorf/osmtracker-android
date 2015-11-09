@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 public class TextNoteDialog extends AlertDialog {
@@ -63,6 +64,7 @@ public class TextNoteDialog extends AlertDialog {
 		this.setButton(context.getResources().getString(android.R.string.ok),  new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
+				hideKeyboard();
 				// Track waypoint with user input text
 				Intent intent = new Intent(OSMTracker.INTENT_UPDATE_WP);
 				intent.putExtra(Schema.COL_TRACK_ID, TextNoteDialog.this.wayPointTrackId);
@@ -75,6 +77,7 @@ public class TextNoteDialog extends AlertDialog {
 		this.setButton2(context.getResources().getString(android.R.string.cancel),  new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
+				hideKeyboard();
 				// cancel the dialog
 				dialog.cancel();	
 			}
@@ -83,6 +86,7 @@ public class TextNoteDialog extends AlertDialog {
 		this.setOnCancelListener(new DialogInterface.OnCancelListener() {
 			@Override
 			public void onCancel(DialogInterface dialog) {
+				hideKeyboard();
 				// delete the waypoint because user canceled this dialog
 				Intent intent = new Intent(OSMTracker.INTENT_DELETE_WP);
 				intent.putExtra(OSMTracker.INTENT_KEY_UUID, TextNoteDialog.this.wayPointUuid);
@@ -91,7 +95,11 @@ public class TextNoteDialog extends AlertDialog {
 		});
 		
 	}
-	
+
+	protected void hideKeyboard() {
+		InputMethodManager imm = (InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE);
+		imm.hideSoftInputFromWindow(input.getWindowToken(), 0);
+	}
 	/**
 	 * @link android.app.Dialog#onStart()
 	 */

@@ -159,13 +159,13 @@ public class TrackDetail extends TrackDetailEditor implements AdapterView.OnItem
 		// Start point
 		map = new HashMap<String, String>();
 		map.put(ITEM_KEY, getResources().getString(R.string.trackdetail_startloc));
-		map.put(ITEM_VALUE, MercatorProjection.formatDegreesAsDMS(t.getStartLat(), true) + "  " + MercatorProjection.formatDegreesAsDMS(t.getStartLong(), false));
+		map.put(ITEM_VALUE, MercatorProjection.formatDegreesAsGC(t.getStartLat(), true) + "  " + MercatorProjection.formatDegreesAsGC(t.getStartLong(), false));
 		data.add(map);
 
 		// End point
 		map = new HashMap<String, String>();
 		map.put(ITEM_KEY, getResources().getString(R.string.trackdetail_endloc));
-		map.put(ITEM_VALUE, MercatorProjection.formatDegreesAsDMS(t.getEndLat(), true) + "  " + MercatorProjection.formatDegreesAsDMS(t.getEndLong(), false));
+		map.put(ITEM_VALUE, MercatorProjection.formatDegreesAsGC(t.getEndLat(), true) + "  " + MercatorProjection.formatDegreesAsGC(t.getEndLong(), false));
 		data.add(map);
 
 		// OSM Upload date

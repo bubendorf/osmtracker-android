@@ -1,6 +1,10 @@
 package me.guillaumin.android.osmtracker.util;
 
 
+import dalvik.annotation.TestTargetClass;
+
+import static junit.framework.Assert.assertEquals;
+
 /**
  * Geopoint to 2D projection using Mercator system.
  * 
@@ -169,4 +173,41 @@ public class MercatorProjection {
 
 		return dms.toString();
 	}
+
+	/**
+	 * Given a float degree value (latitude or longitude), format it to Degrees/Minutes/Seconds.
+	 * @param degrees  The value, such as 43.0438
+	 * @param isLatitude  Is this latitude, not longitude?
+	 * @return  The Degrees,Minutes.DezimalMinutes such as: N43° 22.123
+	 */
+	public static String formatDegreesAsGC(Float degrees, final boolean isLatitude) {
+		if (degrees == null) {
+			return "";
+		}
+
+		final boolean neg;
+		if (degrees > 0) {
+			neg = false;
+		} else {
+			neg = true;
+			degrees = -degrees;
+		}
+		StringBuilder dms = new StringBuilder();
+
+		if (isLatitude)
+			dms.append(neg ? 'S' : 'N');
+		else
+			dms.append(neg ? 'W' : 'E');
+
+		int n = degrees.intValue();
+		dms.append(n);
+		dms.append("\u00B0 ");
+
+		degrees = (degrees - n) * 60.0f;
+		dms.append(String.format("%06.3f", degrees));
+		dms.append("' ");
+
+		return dms.toString();
+	}
+
 }
