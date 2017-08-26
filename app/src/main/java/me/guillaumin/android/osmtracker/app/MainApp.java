@@ -35,7 +35,7 @@ import me.guillaumin.android.osmtracker.R;
                 ReportField.THREAD_DETAILS
         },
 //        mode = ReportingInteractionMode.DIALOG,
-        forceCloseDialogAfterToast = false, // optional, default false
+//        forceCloseDialogAfterToast = false, // optional, default false
         resToastText = R.string.crash_toast_text, // optional, displayed as soon as the crash occurs, before collecting data which can take a few seconds
         resDialogText = R.string.crash_dialog_text,
         resDialogIcon = android.R.drawable.ic_dialog_info, //optional. default is a warning sign
